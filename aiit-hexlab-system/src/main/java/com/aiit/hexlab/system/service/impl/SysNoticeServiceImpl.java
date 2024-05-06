@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.service.impl;
 
-import com.aiit.hexlab.system.domain.SysNotice;
+import com.aiit.hexlab.system.domain.entity.SysNotice;
 import com.aiit.hexlab.system.mapper.SysNoticeMapper;
 import com.aiit.hexlab.system.service.ISysNoticeService;
 import org.springframework.beans.factory.annotation.Autowired;

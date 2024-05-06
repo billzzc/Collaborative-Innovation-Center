@@ -5,7 +5,7 @@ import com.aiit.hexlab.common.core.controller.BaseController;
 import com.aiit.hexlab.common.core.domain.AjaxResult;
 import com.aiit.hexlab.common.core.page.TableDataInfo;
 import com.aiit.hexlab.common.enums.BusinessType;
-import com.aiit.hexlab.system.domain.SysNotice;
+import com.aiit.hexlab.system.domain.entity.SysNotice;
 import com.aiit.hexlab.system.service.ISysNoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

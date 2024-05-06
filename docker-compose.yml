@@ -1,0 +1,19 @@
+version : '3.8'
+services:
+  talent-map:
+    container_name: talent-map
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./logs:/logs
+    networks:
+      - aiit-hexlab
+    environment:
+      - TZ=Asia/Shanghai
+networks:
+  aiit-hexlab:
+    external: true
+

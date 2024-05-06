@@ -3,7 +3,7 @@ package com.aiit.hexlab.web.controller.monitor;
 import com.aiit.hexlab.common.constant.CacheConstants;
 import com.aiit.hexlab.common.core.domain.AjaxResult;
 import com.aiit.hexlab.common.utils.StringUtils;
-import com.aiit.hexlab.system.domain.SysCache;
+import com.aiit.hexlab.system.domain.entity.SysCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;

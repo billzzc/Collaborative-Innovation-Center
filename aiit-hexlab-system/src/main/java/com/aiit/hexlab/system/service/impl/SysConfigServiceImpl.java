@@ -8,7 +8,7 @@ import com.aiit.hexlab.common.core.text.Convert;
 import com.aiit.hexlab.common.enums.DataSourceType;
 import com.aiit.hexlab.common.exception.ServiceException;
 import com.aiit.hexlab.common.utils.StringUtils;
-import com.aiit.hexlab.system.domain.SysConfig;
+import com.aiit.hexlab.system.domain.entity.SysConfig;
 import com.aiit.hexlab.system.mapper.SysConfigMapper;
 import com.aiit.hexlab.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;

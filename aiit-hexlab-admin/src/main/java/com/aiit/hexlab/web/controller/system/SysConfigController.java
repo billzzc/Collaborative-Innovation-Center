@@ -6,7 +6,7 @@ import com.aiit.hexlab.common.core.domain.AjaxResult;
 import com.aiit.hexlab.common.core.page.TableDataInfo;
 import com.aiit.hexlab.common.enums.BusinessType;
 import com.aiit.hexlab.common.utils.poi.ExcelUtil;
-import com.aiit.hexlab.system.domain.SysConfig;
+import com.aiit.hexlab.system.domain.entity.SysConfig;
 import com.aiit.hexlab.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

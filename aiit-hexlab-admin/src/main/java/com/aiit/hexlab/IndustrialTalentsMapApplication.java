@@ -13,7 +13,7 @@ public class IndustrialTalentsMapApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(IndustrialTalentsMapApplication.class, args);
-        System.out.println("【康复训练系统启动成功！】");
+        System.out.println("【萧山产才地图启动成功！】");
     }
 
 }

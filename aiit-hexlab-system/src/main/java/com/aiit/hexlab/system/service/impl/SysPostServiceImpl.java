@@ -3,7 +3,7 @@ package com.aiit.hexlab.system.service.impl;
 import com.aiit.hexlab.common.constant.UserConstants;
 import com.aiit.hexlab.common.exception.ServiceException;
 import com.aiit.hexlab.common.utils.StringUtils;
-import com.aiit.hexlab.system.domain.SysPost;
+import com.aiit.hexlab.system.domain.entity.SysPost;
 import com.aiit.hexlab.system.mapper.SysPostMapper;
 import com.aiit.hexlab.system.mapper.SysUserPostMapper;
 import com.aiit.hexlab.system.service.ISysPostService;

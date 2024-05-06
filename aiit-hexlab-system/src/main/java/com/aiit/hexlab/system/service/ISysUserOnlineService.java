@@ -1,7 +1,7 @@
 package com.aiit.hexlab.system.service;
 
 import com.aiit.hexlab.common.core.domain.model.LoginUser;
-import com.aiit.hexlab.system.domain.SysUserOnline;
+import com.aiit.hexlab.system.domain.entity.SysUserOnline;
 
 /**
  * 在线用户 服务层

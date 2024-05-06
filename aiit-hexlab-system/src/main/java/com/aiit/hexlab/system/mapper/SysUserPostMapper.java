@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.mapper;
 
-import com.aiit.hexlab.system.domain.SysUserPost;
+import com.aiit.hexlab.system.domain.entity.SysUserPost;
 
 import java.util.List;
 

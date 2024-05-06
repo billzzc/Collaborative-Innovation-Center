@@ -12,7 +12,7 @@ import com.aiit.hexlab.common.utils.StringUtils;
 import com.aiit.hexlab.common.utils.ip.IpUtils;
 import com.aiit.hexlab.framework.manager.AsyncManager;
 import com.aiit.hexlab.framework.manager.factory.AsyncFactory;
-import com.aiit.hexlab.system.domain.SysOperLog;
+import com.aiit.hexlab.system.domain.entity.SysOperLog;
 import com.alibaba.fastjson2.JSON;
 import org.apache.commons.lang3.ArrayUtils;
 import org.aspectj.lang.JoinPoint;

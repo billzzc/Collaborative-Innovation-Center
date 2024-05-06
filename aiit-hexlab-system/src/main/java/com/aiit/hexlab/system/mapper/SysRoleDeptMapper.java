@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.mapper;
 
-import com.aiit.hexlab.system.domain.SysRoleDept;
+import com.aiit.hexlab.system.domain.entity.SysRoleDept;
 
 import java.util.List;
 

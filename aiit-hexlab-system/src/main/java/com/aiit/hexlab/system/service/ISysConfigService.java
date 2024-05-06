@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.service;
 
-import com.aiit.hexlab.system.domain.SysConfig;
+import com.aiit.hexlab.system.domain.entity.SysConfig;
 
 import java.util.List;
 

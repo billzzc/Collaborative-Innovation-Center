@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.service.impl;
 
-import com.aiit.hexlab.system.domain.SysOperLog;
+import com.aiit.hexlab.system.domain.entity.SysOperLog;
 import com.aiit.hexlab.system.mapper.SysOperLogMapper;
 import com.aiit.hexlab.system.service.ISysOperLogService;
 import org.springframework.beans.factory.annotation.Autowired;

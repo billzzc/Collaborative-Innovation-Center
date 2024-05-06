@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.service;
 
-import com.aiit.hexlab.system.domain.SysPost;
+import com.aiit.hexlab.system.domain.entity.SysPost;
 
 import java.util.List;
 

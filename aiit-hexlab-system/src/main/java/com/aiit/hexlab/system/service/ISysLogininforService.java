@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.service;
 
-import com.aiit.hexlab.system.domain.SysLogininfor;
+import com.aiit.hexlab.system.domain.entity.SysLogininfor;
 
 import java.util.List;
 

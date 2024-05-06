@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.service.impl;
 
-import com.aiit.hexlab.system.domain.SysLogininfor;
+import com.aiit.hexlab.system.domain.entity.SysLogininfor;
 import com.aiit.hexlab.system.mapper.SysLogininforMapper;
 import com.aiit.hexlab.system.service.ISysLogininforService;
 import org.springframework.beans.factory.annotation.Autowired;

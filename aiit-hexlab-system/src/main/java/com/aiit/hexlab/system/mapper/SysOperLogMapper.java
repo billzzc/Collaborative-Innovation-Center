@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.mapper;
 
-import com.aiit.hexlab.system.domain.SysOperLog;
+import com.aiit.hexlab.system.domain.entity.SysOperLog;
 
 import java.util.List;
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiit.hexlab.system.mapper.RckMapper">
+
+    <select id="select4maps" resultType="com.aiit.hexlab.system.domain.vo.response.index.DtzbResponse">
+        select COUNT(1) as sl, c.lgt as lgt, c.lat as lat, c.name_cn as mc
+        from rck r
+                 LEFT JOIN country_location c on r.xzgj = c.name_cn
+        where r.xzgj is not NULL
+        GROUP BY r.xzgj
+    </select>
+
+    <select id="select4Qqhrzdrc" resultType="com.aiit.hexlab.system.domain.vo.response.index.QqhrzdrcResponse">
+        select pyxm as xmpy, ppgs as ppgs, yjly as yjly, dbcg as dbcg
+        from rck
+    </select>
+
+    <select id="select4AgePie" resultType="com.aiit.hexlab.system.domain.vo.response.index.PieResponse">
+        select nlfw as mc, count(1) as sl, count(1) / (select count(1) from rck) as zb
+        from rck
+        group by nlfw
+    </select>
+
+    <select id="select4Xflyrcfx" resultType="com.aiit.hexlab.system.domain.vo.response.index.XflyrcfxResponse">
+        select yjly as x, count(1) as y
+        from rck
+        group by yjly
+    </select>
+</mapper>

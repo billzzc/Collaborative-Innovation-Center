@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.mapper;
 
-import com.aiit.hexlab.system.domain.SysNotice;
+import com.aiit.hexlab.system.domain.entity.SysNotice;
 
 import java.util.List;
 

@@ -9,7 +9,7 @@ import com.aiit.hexlab.common.core.page.TableDataInfo;
 import com.aiit.hexlab.common.core.redis.RedisCache;
 import com.aiit.hexlab.common.enums.BusinessType;
 import com.aiit.hexlab.common.utils.StringUtils;
-import com.aiit.hexlab.system.domain.SysUserOnline;
+import com.aiit.hexlab.system.domain.entity.SysUserOnline;
 import com.aiit.hexlab.system.service.ISysUserOnlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

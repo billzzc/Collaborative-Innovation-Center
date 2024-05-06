@@ -5,7 +5,6 @@ import com.aiit.hexlab.common.core.domain.AjaxResult;
 import com.aiit.hexlab.common.core.domain.model.RegisterBody;
 import com.aiit.hexlab.common.utils.StringUtils;
 import com.aiit.hexlab.framework.web.service.SysRegisterService;
-import com.aiit.hexlab.system.service.IPatientInfoService;
 import com.aiit.hexlab.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,8 +25,6 @@ public class SysRegisterController extends BaseController
     @Autowired
     private ISysConfigService configService;
 
-    @Autowired
-    private IPatientInfoService patientInfoService;
 
     @PostMapping("/register")
     public AjaxResult register(@RequestBody RegisterBody user)
@@ -40,10 +37,4 @@ public class SysRegisterController extends BaseController
         return StringUtils.isEmpty(msg) ? success() : error(msg);
     }
 
-    @PostMapping("/patientRegister")
-    public AjaxResult patientRegister(@RequestBody RegisterBody user)
-    {
-        String msg = patientInfoService.patientRegister(user);
-        return StringUtils.isEmpty(msg) ? success() : error(msg);
-    }
 }

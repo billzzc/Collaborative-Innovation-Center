@@ -1,7 +1,7 @@
 package com.aiit.hexlab.system.service;
 
 import com.aiit.hexlab.common.core.domain.entity.SysRole;
-import com.aiit.hexlab.system.domain.SysUserRole;
+import com.aiit.hexlab.system.domain.entity.SysUserRole;
 
 import java.util.List;
 import java.util.Set;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiit.hexlab.system.mapper.XgjqgwMapper">
+
+    <select id="groupByCy" resultType="com.aiit.hexlab.system.domain.vo.response.index.CyrcxqResponse">
+        select SUM(gwqksl) as xqrs,
+               SUM(gwqksl) / 5 as fbzws,
+               cy as x
+        from xgjqgw
+        group by cy
+    </select>
+</mapper>

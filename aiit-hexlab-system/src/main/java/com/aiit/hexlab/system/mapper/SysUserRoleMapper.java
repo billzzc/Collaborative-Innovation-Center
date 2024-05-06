@@ -1,6 +1,6 @@
 package com.aiit.hexlab.system.mapper;
 
-import com.aiit.hexlab.system.domain.SysUserRole;
+import com.aiit.hexlab.system.domain.entity.SysUserRole;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

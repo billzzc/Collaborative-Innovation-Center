@@ -13,7 +13,7 @@ import com.aiit.hexlab.common.utils.StringUtils;
 import com.aiit.hexlab.common.utils.poi.ExcelUtil;
 import com.aiit.hexlab.framework.web.service.SysPermissionService;
 import com.aiit.hexlab.framework.web.service.TokenService;
-import com.aiit.hexlab.system.domain.SysUserRole;
+import com.aiit.hexlab.system.domain.entity.SysUserRole;
 import com.aiit.hexlab.system.service.ISysDeptService;
 import com.aiit.hexlab.system.service.ISysRoleService;
 import com.aiit.hexlab.system.service.ISysUserService;

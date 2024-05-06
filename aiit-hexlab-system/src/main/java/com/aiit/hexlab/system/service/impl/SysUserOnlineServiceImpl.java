@@ -2,7 +2,7 @@ package com.aiit.hexlab.system.service.impl;
 
 import com.aiit.hexlab.common.core.domain.model.LoginUser;
 import com.aiit.hexlab.common.utils.StringUtils;
-import com.aiit.hexlab.system.domain.SysUserOnline;
+import com.aiit.hexlab.system.domain.entity.SysUserOnline;
 import com.aiit.hexlab.system.service.ISysUserOnlineService;
 import org.springframework.stereotype.Service;
 

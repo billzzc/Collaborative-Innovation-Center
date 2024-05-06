@@ -7,7 +7,7 @@ import com.aiit.hexlab.common.core.page.TableDataInfo;
 import com.aiit.hexlab.common.enums.BusinessType;
 import com.aiit.hexlab.common.utils.poi.ExcelUtil;
 import com.aiit.hexlab.framework.web.service.SysPasswordService;
-import com.aiit.hexlab.system.domain.SysLogininfor;
+import com.aiit.hexlab.system.domain.entity.SysLogininfor;
 import com.aiit.hexlab.system.service.ISysLogininforService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
