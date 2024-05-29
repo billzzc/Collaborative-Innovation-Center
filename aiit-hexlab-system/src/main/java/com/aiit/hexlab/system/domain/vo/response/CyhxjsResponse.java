@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class XflyResponse {
+public class CyhxjsResponse {
 
     @ApiModelProperty(name = "上面一排")
     private List<String> title;
