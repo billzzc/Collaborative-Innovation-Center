@@ -1,13 +1,15 @@
-package com.aiit.hexlab.system.domain.vo.response.index;
+package com.aiit.hexlab.system.domain.vo.response;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class XmResponse {
+public class CyyqResponse {
 
-    @ApiModelProperty(value = "项目名称")
-    private String xmmc;
+    private Long id;
+
+    @ApiModelProperty(value = "园区名称")
+    private String yqmc;
 
     @ApiModelProperty(value = "产业领域")
     private String cyly;
