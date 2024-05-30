@@ -10,8 +10,8 @@ public class Qyk {
     /**
      * 序号
      */
-    @TableId(value = "xh", type = IdType.AUTO)
-    private Long xh;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
     /**
      * 企业名称
      */
@@ -19,7 +19,7 @@ public class Qyk {
     /**
      * 所属行业
      */
-    private String sshy;
+    private String cyfx;
     /**
      * 产品类别
      */
@@ -48,5 +48,7 @@ public class Qyk {
     private String lat;
 
     private String lgt;
+
+    private String cyly;
 
 }

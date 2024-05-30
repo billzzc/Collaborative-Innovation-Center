@@ -1,8 +1,9 @@
-package com.aiit.hexlab.web.controller;
+package com.aiit.hexlab.web.controller.map;
 
 import com.aiit.hexlab.common.core.domain.AjaxNewResult;
 import com.aiit.hexlab.system.domain.vo.response.*;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +27,11 @@ public class MapController {
 
     @ApiOperation(value = "产业核心技术")
     @GetMapping("cyhxjs")
-    @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
-    public AjaxNewResult<CyhxjsResponse> cyhxjs(@RequestParam("type") String type) {
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "name", value = "名称", required = true, dataType = "String", paramType = "query")
+    })
+    public AjaxNewResult<CyhxjsResponse> cyhxjs(@RequestParam("type") String type, @RequestParam("name") String name) {
         CyhxjsResponse response = new CyhxjsResponse();
         return AjaxNewResult.success(response);
     }
