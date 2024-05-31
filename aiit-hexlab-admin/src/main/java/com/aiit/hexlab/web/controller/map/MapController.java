@@ -1,6 +1,7 @@
 package com.aiit.hexlab.web.controller.map;
 
 import com.aiit.hexlab.common.core.domain.AjaxNewResult;
+import com.aiit.hexlab.common.core.domain.AjaxResult;
 import com.aiit.hexlab.system.domain.vo.response.*;
 import com.aiit.hexlab.system.service.IMapService;
 import io.swagger.annotations.ApiImplicitParam;
@@ -123,6 +124,12 @@ public class MapController {
     public AjaxNewResult<KcpthxResponse> kcpthx(@RequestParam("id") Long id) {
         KcpthxResponse response = mapService.kcpthx(id);
         return AjaxNewResult.success(response);
+    }
+
+    @GetMapping("location")
+    public AjaxResult location() {
+        mapService.location();
+        return AjaxResult.success();
     }
 
 }

@@ -404,6 +404,11 @@ public class MapServiceImpl implements IMapService {
         return response;
     }
 
+    @Override
+    public void location() {
+
+    }
+
     private String formatZjtx(Qyk qyk) {
         if ("是".equals(qyk.getZjtx())) {
             if (StringUtils.isNotEmpty(qyk.getRytd())) {
