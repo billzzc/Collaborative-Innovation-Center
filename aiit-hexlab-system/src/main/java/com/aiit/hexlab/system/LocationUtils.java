@@ -8,7 +8,7 @@ import com.alibaba.fastjson2.JSONObject;
 public class LocationUtils {
 
     public static String getLocation(String address) {
-        String s = HttpUtils.sendGet(AmapConstant.LOCATION_SEARCH_URL, "key=2aff5b5f28cbf1d06081b4f7b3a29333" +
+        String s = HttpUtils.sendGet(AmapConstant.LOCATION_SEARCH_URL, "key=d813b19a5d66e9b9dd3f06ef27cb0da8" +
                 "&types=&city=杭州&children=1&offset=1&page=1&extensions=base" +
                 "&keywords=" + address);
         try {

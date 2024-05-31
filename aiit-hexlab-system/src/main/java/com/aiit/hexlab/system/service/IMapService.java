@@ -32,6 +32,6 @@ public interface IMapService {
 
     KcpthxResponse kcpthx(Long id);
 
-    void location();
+    void location(String type);
 
 }

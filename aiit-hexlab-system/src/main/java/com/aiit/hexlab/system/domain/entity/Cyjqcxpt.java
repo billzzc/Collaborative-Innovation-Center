@@ -41,4 +41,6 @@ public class Cyjqcxpt {
     private String lat;
 
     private String cyfx;
+
+    private String dz;
 }

@@ -126,9 +126,10 @@ public class MapController {
         return AjaxNewResult.success(response);
     }
 
+    @ApiOperation(value = "更新经纬度")
     @GetMapping("location")
-    public AjaxResult location() {
-        mapService.location();
+    public AjaxResult location(@RequestParam("type") String type) {
+        mapService.location(type);
         return AjaxResult.success();
     }
 

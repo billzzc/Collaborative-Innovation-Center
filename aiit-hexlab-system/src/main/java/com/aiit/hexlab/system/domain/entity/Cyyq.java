@@ -30,4 +30,6 @@ public class Cyyq {
 
     private String zydw;
 
+    private String dz;
+
 }
