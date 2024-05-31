@@ -24,8 +24,8 @@ public class QyhxResponse {
     @ApiModelProperty(value = "核心技术")
     private String hxjs;
 
-    @ApiModelProperty(value = "领军技术人才")
-    private String ljjsrc;
+    @ApiModelProperty(value = "企业重点人才")
+    private List<RcListHxResponse> qyzdrc;
 
     @ApiModelProperty(value = "推荐人才")
     private List<RcListHxResponse> tjrc;

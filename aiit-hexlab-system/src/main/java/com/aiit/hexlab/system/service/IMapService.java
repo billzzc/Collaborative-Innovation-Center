@@ -12,11 +12,11 @@ public interface IMapService {
 
     CyqyResponse cyqy(String type);
 
-    MapResponse index(String type);
+    IndexResponse index(String type);
 
     List<CyxyrcResponse> cyxyrc(String type);
 
-    CydyrcResponse cydyrc(String type);
+    CydyrcResponse cyrck(String type);
 
     List<CyyqResponse> cyyq(String type);
 

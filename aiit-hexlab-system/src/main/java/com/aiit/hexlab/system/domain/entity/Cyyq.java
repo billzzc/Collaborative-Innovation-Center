@@ -10,10 +10,24 @@ public class Cyyq {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private String zyyq;
+    private String yqmc;
 
     private String lat;
 
     private String lgt;
+
+    private String tdxz;
+
+    private String zdqy;
+
+    private String cyly;
+
+    private String cyfx;
+
+    private String zdfx;
+
+    private String xfsd;
+
+    private String zydw;
 
 }

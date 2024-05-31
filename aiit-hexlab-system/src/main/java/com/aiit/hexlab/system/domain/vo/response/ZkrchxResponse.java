@@ -1,9 +1,11 @@
 package com.aiit.hexlab.system.domain.vo.response;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class ZkrchxResponse {
 
     @ApiModelProperty(value = "姓名")

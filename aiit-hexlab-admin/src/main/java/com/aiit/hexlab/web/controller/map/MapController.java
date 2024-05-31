@@ -2,6 +2,7 @@ package com.aiit.hexlab.web.controller.map;
 
 import com.aiit.hexlab.common.core.domain.AjaxNewResult;
 import com.aiit.hexlab.system.domain.vo.response.*;
+import com.aiit.hexlab.system.service.IMapService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,62 +19,61 @@ import java.util.List;
 @RequestMapping("map")
 public class MapController {
 
+    @Resource
+    private IMapService mapService;
+
     @ApiOperation(value = "产业企业概览")
     @GetMapping("cyqygl")
     @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
     public AjaxNewResult<List<PieResponse>> qygl(@RequestParam("type") String type) {
-        List<PieResponse> list = new ArrayList<>();
-        return AjaxNewResult.success(list);
+        return AjaxNewResult.success(mapService.cyqygl(type));
     }
 
     @ApiOperation(value = "产业核心技术")
     @GetMapping("cyhxjs")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query"),
-            @ApiImplicitParam(name = "name", value = "名称", required = true, dataType = "String", paramType = "query")
+            @ApiImplicitParam(name = "name", value = "名称", required = false, dataType = "String", paramType = "query")
     })
-    public AjaxNewResult<CyhxjsResponse> cyhxjs(@RequestParam("type") String type, @RequestParam("name") String name) {
-        CyhxjsResponse response = new CyhxjsResponse();
-        return AjaxNewResult.success(response);
+    public AjaxNewResult<CyhxjsResponse> cyhxjs(@RequestParam("type") String type,
+                                                @RequestParam(value = "name", required = false) String name) {
+        return AjaxNewResult.success(mapService.cyhxjs(type, name));
     }
 
     @ApiOperation(value = "产业企业")
     @GetMapping("cyqy")
     @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
     public AjaxNewResult<CyqyResponse> cyqy(@RequestParam("type") String type) {
-        CyqyResponse response = new CyqyResponse();
-        return AjaxNewResult.success(response);
+        return AjaxNewResult.success(mapService.cyqy(type));
     }
 
     @ApiOperation(value = "地图")
     @GetMapping("index")
     @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
-    public AjaxNewResult<MapResponse> index(@RequestParam("type") String type) {
-        MapResponse response = new MapResponse();
-        return AjaxNewResult.success(response);
+    public AjaxNewResult<IndexResponse> index(@RequestParam("type") String type) {
+        return AjaxNewResult.success(mapService.index(type));
     }
 
     @ApiOperation(value = "产业现有人才")
     @GetMapping("cyxyrc")
     @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
     public AjaxNewResult<List<CyxyrcResponse>> cyxyrc(@RequestParam("type") String type) {
-        List<CyxyrcResponse> list = new ArrayList<>();
+        List<CyxyrcResponse> list = mapService.cyxyrc(type);
         return AjaxNewResult.success(list);
     }
 
-    @ApiOperation(value = "产业盯引人才")
-    @GetMapping("cydyrc")
+    @ApiOperation(value = "产业人才库分析")
+    @GetMapping("cyrck")
     @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
-    public AjaxNewResult<CydyrcResponse> cydyrc(@RequestParam("type") String type) {
-        CydyrcResponse response = new CydyrcResponse();
-        return AjaxNewResult.success(response);
+    public AjaxNewResult<CydyrcResponse> cyrck(@RequestParam("type") String type) {
+        return AjaxNewResult.success(mapService.cyrck(type));
     }
 
     @ApiOperation(value = "产业园区")
     @GetMapping("cyyq")
     @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
-    public AjaxNewResult<List<CyyqResponse>> cyqyq(@RequestParam("type") String type) {
-        List<CyyqResponse> list = new ArrayList<>();
+    public AjaxNewResult<List<CyyqResponse>> cyyq(@RequestParam("type") String type) {
+        List<CyyqResponse> list = mapService.cyyq(type);
         return AjaxNewResult.success(list);
     }
 
@@ -80,7 +81,7 @@ public class MapController {
     @GetMapping("kcpt")
     @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
     public AjaxNewResult<List<KcptResponse>> kcpt(@RequestParam("type") String type) {
-        List<KcptResponse> list = new ArrayList<>();
+        List<KcptResponse> list = mapService.kcpt(type);
         return AjaxNewResult.success(list);
     }
 
@@ -88,7 +89,7 @@ public class MapController {
     @GetMapping("dyrchx")
     @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "Long", paramType = "query")
     public AjaxNewResult<DyrchxResponse> rchx(@RequestParam("id") Long id) {
-        DyrchxResponse response = new DyrchxResponse();
+        DyrchxResponse response = mapService.rchx(id);
         return AjaxNewResult.success(response);
     }
 
@@ -96,7 +97,7 @@ public class MapController {
     @GetMapping("qyhx")
     @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "Long", paramType = "query")
     public AjaxNewResult<QyhxResponse> qyhx(@RequestParam("id") Long id) {
-        QyhxResponse response = new QyhxResponse();
+        QyhxResponse response = mapService.qyhx(id);
         return AjaxNewResult.success(response);
     }
 
@@ -104,7 +105,7 @@ public class MapController {
     @GetMapping("rckrchx")
     @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "Long", paramType = "query")
     public AjaxNewResult<ZkrchxResponse> rckrchx(@RequestParam("id") Long id) {
-        ZkrchxResponse response = new ZkrchxResponse();
+        ZkrchxResponse response = mapService.rckrchx(id);
         return AjaxNewResult.success(response);
     }
 
@@ -112,7 +113,7 @@ public class MapController {
     @GetMapping("cyyqhx")
     @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "Long", paramType = "query")
     public AjaxNewResult<CyyqhxResponse> cyyqhx(@RequestParam("id") Long id) {
-        CyyqhxResponse response = new CyyqhxResponse();
+        CyyqhxResponse response = mapService.cyyqhx(id);
         return AjaxNewResult.success(response);
     }
 
@@ -120,7 +121,7 @@ public class MapController {
     @GetMapping("kcpthx")
     @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "Long", paramType = "query")
     public AjaxNewResult<KcpthxResponse> kcpthx(@RequestParam("id") Long id) {
-        KcpthxResponse response = new KcpthxResponse();
+        KcpthxResponse response = mapService.kcpthx(id);
         return AjaxNewResult.success(response);
     }
 

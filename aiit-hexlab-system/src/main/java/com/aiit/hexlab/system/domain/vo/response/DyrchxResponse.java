@@ -3,6 +3,8 @@ package com.aiit.hexlab.system.domain.vo.response;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class DyrchxResponse {
 
@@ -14,6 +16,9 @@ public class DyrchxResponse {
 
     @ApiModelProperty(value = "学术职称")
     private String xszc;
+
+    @ApiModelProperty(value = "创新创业")
+    private String cxcy;
 
     @ApiModelProperty(value = "人才级别")
     private String rcjb;
@@ -29,5 +34,8 @@ public class DyrchxResponse {
 
     @ApiModelProperty(value = "核心技术")
     private String hxjs;
+
+    @ApiModelProperty(value = "匹配企业")
+    private List<QyListHxResponse> qy;
 
 }

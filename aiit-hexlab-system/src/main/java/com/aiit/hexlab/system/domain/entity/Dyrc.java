@@ -97,4 +97,6 @@ public class Dyrc {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    private String cyly;
+
 }

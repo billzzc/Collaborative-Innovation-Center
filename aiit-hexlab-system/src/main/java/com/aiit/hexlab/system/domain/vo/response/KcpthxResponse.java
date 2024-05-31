@@ -20,6 +20,15 @@ public class KcpthxResponse {
     @ApiModelProperty(value = "依托机构")
     private String ytjg;
 
+    @ApiModelProperty(value = "重点方向")
+    private String zdfx;
+
+    @ApiModelProperty(value = "细分赛道")
+    private String xfsd;
+
+    @ApiModelProperty(value = "产业方向")
+    private String cyfx;
+
     @ApiModelProperty(value = "核心技术")
     private String hxjs;
 

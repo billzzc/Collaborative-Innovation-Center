@@ -15,7 +15,7 @@ public class MapResponse {
     @ApiModelProperty(value = "名称")
     private String name;
 
-    @ApiModelProperty(value = "类型, 0是科创平台，1是产业企业，2是产业园区")
+    @ApiModelProperty(value = "类型, 0是产业企业，1是产业园区，2是科创平台")
     private String type;
 
     private String lgt;

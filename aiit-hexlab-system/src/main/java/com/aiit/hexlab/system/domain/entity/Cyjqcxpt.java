@@ -2,6 +2,7 @@ package com.aiit.hexlab.system.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
@@ -10,16 +11,12 @@ public class Cyjqcxpt {
     /**
      * 序号
      */
-    @TableId(value = "xh", type = IdType.AUTO)
-    private Long xh;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
     /**
      * 类型
      */
     private String lx;
-    /**
-     * 领域
-     */
-    private String ly;
     /**
      * 核心技术
      */
@@ -33,7 +30,15 @@ public class Cyjqcxpt {
      */
     private String ytjg;
 
-    private String zdhy;
+    private String zdfx;
 
     private String xfsd;
+
+    private String cyly;
+
+    private String lgt;
+
+    private String lat;
+
+    private String cyfx;
 }

@@ -17,38 +17,59 @@ public class Qyk {
      */
     private String qymc;
     /**
-     * 所属行业
+     * 产业方向
      */
     private String cyfx;
     /**
-     * 产品类别
+     * 主营产品
      */
-    private String cplb;
+    private String zycp;
     /**
      * 核心技术
      */
     private String hxjs;
     /**
-     * 领军技术人才
+     * 存量技术人才
      */
-    private String ljjsrc;
+    private String cljsrc;
     /**
-     * 企业类型
+     * 荣誉梯度
      */
-    private String qylx;
+    private String rytd;
     /**
      * 其他
      */
     private String qt;
-
-    private String zdhy;
-
-    private String xfsd;
-
+    /**
+     * 纬度
+     */
     private String lat;
-
+    /**
+     * 经度
+     */
     private String lgt;
-
+    /**
+     * 重点方向
+     */
+    private String zdfx;
+    /**
+     * 细分赛道
+     */
+    private String xfsd;
+    /**
+     * 技术重点企业
+     */
+    private String jszdqy;
+    /**
+     * 地址
+     */
+    private String dz;
+    /**
+     * 产业领域
+     */
     private String cyly;
-
+    /**
+     * 专精特新
+     */
+    private String zjtx;
 }
