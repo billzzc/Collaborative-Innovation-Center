@@ -3,9 +3,11 @@ package com.aiit.hexlab.system.domain.vo.response;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class CyyqResponse {
 
     private Long id;

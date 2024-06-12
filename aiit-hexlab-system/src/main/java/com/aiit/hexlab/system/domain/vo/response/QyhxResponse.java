@@ -24,6 +24,15 @@ public class QyhxResponse {
     @ApiModelProperty(value = "核心技术")
     private String hxjs;
 
+    @ApiModelProperty(value = "重点方向")
+    private String zdfx;
+
+    @ApiModelProperty(value = "细分赛道")
+    private String xfsd;
+
+    @ApiModelProperty(value = "专精特新")
+    private String zjtx;
+
     @ApiModelProperty(value = "企业重点人才")
     private List<RcListHxResponse> qyzdrc;
 

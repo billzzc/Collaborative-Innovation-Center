@@ -50,9 +50,12 @@ public class MapController {
 
     @ApiOperation(value = "地图")
     @GetMapping("index")
-    @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
-    public AjaxNewResult<IndexResponse> index(@RequestParam("type") String type) {
-        return AjaxNewResult.success(mapService.index(type));
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "name", value = "名称", required = false, dataType = "String", paramType = "query")
+    })
+    public AjaxNewResult<IndexResponse> index(@RequestParam("type") String type, @RequestParam(value = "name", required = false) String name) {
+        return AjaxNewResult.success(mapService.index(type, name));
     }
 
     @ApiOperation(value = "产业现有人才")
@@ -89,8 +92,8 @@ public class MapController {
     @ApiOperation(value ="盯引人才画像")
     @GetMapping("dyrchx")
     @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "Long", paramType = "query")
-    public AjaxNewResult<DyrchxResponse> rchx(@RequestParam("id") Long id) {
-        DyrchxResponse response = mapService.rchx(id);
+    public AjaxNewResult<DyrchxResponse> rchx(@RequestParam("id") Long id, @RequestParam("type") String type) {
+        DyrchxResponse response = mapService.rchx(id, type);
         return AjaxNewResult.success(response);
     }
 
@@ -105,8 +108,8 @@ public class MapController {
     @ApiOperation(value ="人才画像（现存）")
     @GetMapping("rckrchx")
     @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "Long", paramType = "query")
-    public AjaxNewResult<ZkrchxResponse> rckrchx(@RequestParam("id") Long id) {
-        ZkrchxResponse response = mapService.rckrchx(id);
+    public AjaxNewResult<ZkrchxResponse> rckrchx(@RequestParam("id") Long id, @RequestParam("type") String type) {
+        ZkrchxResponse response = mapService.rckrchx(id, type);
         return AjaxNewResult.success(response);
     }
 

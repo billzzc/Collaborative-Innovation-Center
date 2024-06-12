@@ -28,14 +28,14 @@ public class Knife4jConfig {
                 .paths(PathSelectors.any())
                 .build();
     }
-    private static final String API_TILE="萧山产才地图";
+    private static final String API_TILE="产才地图3.0";
     //文档信息配置
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 // 文档标题
                 .title(API_TILE)
                 // 文档描述信息
-                .description("萧山产才地图接口文档")
+                .description("产才地图3.0接口文档")
                 // 文档版本号
                 .version("1.0")
                 .build();

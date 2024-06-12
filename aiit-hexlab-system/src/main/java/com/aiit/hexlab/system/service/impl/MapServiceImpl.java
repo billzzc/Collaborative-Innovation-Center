@@ -192,15 +192,23 @@ public class MapServiceImpl implements IMapService {
     }
 
     @Override
-    public IndexResponse index(String type) {
+    public IndexResponse index(String type, String name) {
         IndexResponse response = new IndexResponse();
         List<MapResponse> mapList = new ArrayList<>();
-        LambdaQueryWrapper<Qyk> wrapper = new LambdaQueryWrapper<>();
+        LambdaQueryWrapperX<Qyk> wrapper = new LambdaQueryWrapperX<>();
+        LambdaQueryWrapper<Cyjqcxpt> ptWrapper = new LambdaQueryWrapper<Cyjqcxpt>();
+        LambdaQueryWrapper<Cyyq> yqWrapper = new LambdaQueryWrapper<Cyyq>();
         wrapper.eq(Qyk::getCyly, type);
+        ptWrapper.eq(Cyjqcxpt::getCyly, type);
+        yqWrapper.eq(Cyyq::getCyly, type);
+        if (StringUtils.isNotEmpty(name)) {
+            wrapper.and(e->e.eq(Qyk::getCyfx, name).or().eq(Qyk::getZdfx, name).or().eq(Qyk::getXfsd, name));
+            ptWrapper.and(e->e.eq(Cyjqcxpt::getCyfx, name).or().eq(Cyjqcxpt::getZdfx, name).or().eq(Cyjqcxpt::getXfsd, name));
+            yqWrapper.and(e->e.eq(Cyyq::getCyfx, name).or().eq(Cyyq::getZdfx, name).or().eq(Cyyq::getXfsd, name));
+        }
         List<Qyk> qyks = qykMapper.selectList(wrapper);
         response.setCyzdqy(qyks.size());
-        response.setZjtxqy(qykMapper.selectCount(new LambdaQueryWrapper<Qyk>().eq(Qyk::getCyly, type)
-                                                                              .like(Qyk::getZjtx, "是")));
+        response.setZjtxqy(qykMapper.selectCount(wrapper.and(e->e.eq(Qyk::getZjtx, "是"))));
         response.setCydyrc(dyrcMapper.selectCount(new LambdaQueryWrapper<Dyrc>().eq(Dyrc::getCyly, type)));
         response.setCyxyrc(afrckMapper.selectCount(new LambdaQueryWrapper<Afrck>().like(Afrck::getLb, type)));
         // 将qyks中hxjs字段按照顿号隔开拼成一个数组
@@ -210,11 +218,19 @@ public class MapServiceImpl implements IMapService {
                                                         .collect(Collectors.groupingBy(String::trim, Collectors.summarizingInt(e -> 1)));
         response.setCyhxjsly(collect.size());
 
-        List<Cyjqcxpt> cyjqcxpts = cyjqcxptMapper.selectList(new LambdaQueryWrapper<Cyjqcxpt>().eq(Cyjqcxpt::getCyly, type));
-        List<Cyyq> cyyqs = cyyqMapper.selectList(new LambdaQueryWrapper<Cyyq>().eq(Cyyq::getCyly, type));
+
+        List<Cyjqcxpt> cyjqcxpts = cyjqcxptMapper.selectList(ptWrapper);
+        List<Cyyq> cyyqs = cyyqMapper.selectList(yqWrapper);
+
+        List<String> qymcs = qyks.stream()
+                                    .map(e -> e.getQymc().trim())
+                                    .collect(Collectors.toList());
+        List<Dyrc> dyrcs = dyrcMapper.selectList(new LambdaQueryWrapper<Dyrc>().eq(Dyrc::getCyly, type).eq(Dyrc::getYjzt, "成功匹配"));
+        response.setCgpprc(dyrcs.size());
 
         for (Qyk qyk : qyks) {
             MapResponse mapResponse = new MapResponse();
+            mapResponse.setId(qyk.getId());
             mapResponse.setType("0");
             mapResponse.setLat(qyk.getLat());
             mapResponse.setLgt(qyk.getLgt());
@@ -226,6 +242,7 @@ public class MapServiceImpl implements IMapService {
         }
         for (Cyyq cyyq : cyyqs) {
             MapResponse mapResponse = new MapResponse();
+            mapResponse.setId(cyyq.getId());
             mapResponse.setType("1");
             mapResponse.setLat(cyyq.getLat());
             mapResponse.setLgt(cyyq.getLgt());
@@ -237,6 +254,7 @@ public class MapServiceImpl implements IMapService {
         }
         for (Cyjqcxpt cyjqcxpt : cyjqcxpts) {
             MapResponse mapResponse = new MapResponse();
+            mapResponse.setId(cyjqcxpt.getId());
             mapResponse.setType("2");
             mapResponse.setLat(cyjqcxpt.getLat());
             mapResponse.setLgt(cyjqcxpt.getLgt());
@@ -310,7 +328,7 @@ public class MapServiceImpl implements IMapService {
     }
 
     @Override
-    public DyrchxResponse rchx(Long id) {
+    public DyrchxResponse rchx(Long id, String type) {
         DyrchxResponse response = new DyrchxResponse();
         Dyrc dyrc = dyrcMapper.selectById(id);
         response.setXmpy(dyrc.getXmpy());
@@ -321,6 +339,10 @@ public class MapServiceImpl implements IMapService {
         response.setXzgj(dyrc.getXzdgj());
         response.setZyly(dyrc.getYjly());
         response.setDbcg(dyrc.getDbcg());
+        response.setByyx(dyrc.getZgxlbyyx());
+        response.setGzdw(dyrc.getXgzdw());
+        response.setGzzc(dyrc.getGzzj());
+        response.setZt(dyrc.getYjzt());
         List<String> temp = new ArrayList<>();
         if (!StringUtils.isEmpty(dyrc.getJslya())) {
             temp.add(dyrc.getJslya());
@@ -333,9 +355,10 @@ public class MapServiceImpl implements IMapService {
         }
         response.setHxjs(String.join("、", temp));
         // 根据ppqy搜索qyk中的企业
-        if (!StringUtils.isEmpty(dyrc.getPpqy())) {
+        if (StringUtils.isNotEmpty(dyrc.getPpqy())) {
             Qyk qyk = qykMapper.selectOne(new LambdaQueryWrapper<Qyk>().eq(Qyk::getQymc, dyrc.getPpqy()
-                                                                                             .trim()));
+                                                                                             .trim())
+                                                                       .eq(Qyk::getCyly, type));
             if (qyk != null) {
                 QyListHxResponse qyListHxResponse = new QyListHxResponse();
                 qyListHxResponse.setId(qyk.getId());
@@ -345,6 +368,36 @@ public class MapServiceImpl implements IMapService {
                 List<QyListHxResponse> list = new ArrayList<>();
                 list.add(qyListHxResponse);
                 response.setQy(list);
+            }
+        }
+        if (StringUtils.isNotEmpty(dyrc.getPpcxpt())) {
+            Cyjqcxpt cyjqcxpt = cyjqcxptMapper.selectOne(new LambdaQueryWrapper<Cyjqcxpt>().eq(Cyjqcxpt::getPtmc, dyrc.getPpcxpt()
+                                                                                                                      .trim()));
+            if (cyjqcxpt != null) {
+                KcptResponse cyjqcxptResponse = new KcptResponse();
+                cyjqcxptResponse.setId(cyjqcxpt.getId());
+                cyjqcxptResponse.setYtjg(cyjqcxpt.getYtjg());
+                cyjqcxptResponse.setPtlx(cyjqcxpt.getLx());
+                cyjqcxptResponse.setXfsd(cyjqcxpt.getXfsd());
+                cyjqcxptResponse.setCyly(cyjqcxpt.getCyly());
+                cyjqcxptResponse.setPtmc(cyjqcxpt.getPtmc());
+                List<KcptResponse> list = new ArrayList<>();
+                list.add(cyjqcxptResponse);
+                response.setKcpt(list);
+            }
+        }
+        if (StringUtils.isNotEmpty(dyrc.getPpyq())) {
+            Cyyq cyyq = cyyqMapper.selectOne(new LambdaQueryWrapper<Cyyq>().eq(Cyyq::getYqmc, dyrc.getPpyq()
+                                                                                                  .trim()));
+            if (cyyq != null) {
+                CyyqResponse cyyqResponse = new CyyqResponse();
+                cyyqResponse.setId(cyyq.getId());
+                cyyqResponse.setYqmc(cyyq.getYqmc());
+                cyyqResponse.setCyfx(cyyq.getCyfx());
+                cyyqResponse.setZydw(cyyq.getZydw());
+                List<CyyqResponse> list = new ArrayList<>();
+                list.add(cyyqResponse);
+                response.setYq(list);
             }
         }
         return response;
@@ -359,6 +412,9 @@ public class MapServiceImpl implements IMapService {
         response.setCyfx(qyk.getCyfx());
         response.setCyly(qyk.getCyly());
         response.setHxjs(qyk.getHxjs());
+        response.setZdfx(qyk.getZdfx());
+        response.setXfsd(qyk.getXfsd());
+        response.setZjtx(qyk.getZjtx());
         // 根据公司名去afrck中搜索人才
         List<Afrck> afrcks = afrckMapper.selectList(new LambdaQueryWrapper<Afrck>().eq(Afrck::getGzdw, qyk.getQymc()));
         if (afrcks.size() > 0) {
@@ -373,13 +429,13 @@ public class MapServiceImpl implements IMapService {
             List<RcListHxResponse> rcListHxResponses = dyrcks.stream()
                                                              .map(e -> new RcListHxResponse(e.getId(), e.getXmpy(), e.getXszc(), e.getYjly(), e.getJslya()))
                                                              .collect(Collectors.toList());
-            response.setQyzdrc(rcListHxResponses);
+            response.setTjrc(rcListHxResponses);
         }
         return response;
     }
 
     @Override
-    public ZkrchxResponse rckrchx(Long id) {
+    public ZkrchxResponse rckrchx(Long id, String type) {
         ZkrchxResponse response = new ZkrchxResponse();
         List<QyListHxResponse> qyListHxResponses = new ArrayList<>();
         Afrck afrck = afrckMapper.selectOne(new LambdaQueryWrapper<Afrck>().eq(Afrck::getId, id));
@@ -395,7 +451,8 @@ public class MapServiceImpl implements IMapService {
         response.setJszc(afrck.getZc());
         response.setHxjs("暂无");
         // 根据gzdw搜索企业
-        Qyk qyk = qykMapper.selectOne(new LambdaQueryWrapper<Qyk>().eq(Qyk::getQymc, afrck.getGzdw()));
+        Qyk qyk = qykMapper.selectOne(new LambdaQueryWrapper<Qyk>().eq(Qyk::getQymc, afrck.getGzdw())
+                                                                   .eq(Qyk::getCyly, type));
         if (qyk != null) {
             QyListHxResponse qyListHxResponse = new QyListHxResponse();
             qyListHxResponse.setId(qyk.getId());

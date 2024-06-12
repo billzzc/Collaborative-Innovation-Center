@@ -12,7 +12,7 @@ public interface IMapService {
 
     CyqyResponse cyqy(String type);
 
-    IndexResponse index(String type);
+    IndexResponse index(String type, String name);
 
     List<CyxyrcResponse> cyxyrc(String type);
 
@@ -22,11 +22,11 @@ public interface IMapService {
 
     List<KcptResponse> kcpt(String type);
 
-    DyrchxResponse rchx(Long id);
+    DyrchxResponse rchx(Long id, String type);
 
     QyhxResponse qyhx(Long id);
 
-    ZkrchxResponse rckrchx(Long id);
+    ZkrchxResponse rckrchx(Long id, String type);
 
     CyyqhxResponse cyyqhx(Long id);
 

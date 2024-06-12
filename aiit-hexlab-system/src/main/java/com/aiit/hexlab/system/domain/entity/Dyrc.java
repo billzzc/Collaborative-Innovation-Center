@@ -99,4 +99,6 @@ public class Dyrc {
 
     private String cyly;
 
+    private String yjzt;
+
 }

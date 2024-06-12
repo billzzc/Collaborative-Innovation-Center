@@ -6,6 +6,8 @@ import lombok.Data;
 @Data
 public class MapResponse {
 
+    private Long id;
+
     private String value1;
 
     private String value2;

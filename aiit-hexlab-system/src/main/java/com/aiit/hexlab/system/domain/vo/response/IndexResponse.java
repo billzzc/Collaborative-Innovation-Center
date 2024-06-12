@@ -23,6 +23,9 @@ public class IndexResponse {
     @ApiModelProperty(value = "产业盯引人才")
     private Integer cydyrc;
 
+    @ApiModelProperty(value = "成功匹配人才")
+    private Integer cgpprc;
+
     private List<MapResponse> map;
 
 }

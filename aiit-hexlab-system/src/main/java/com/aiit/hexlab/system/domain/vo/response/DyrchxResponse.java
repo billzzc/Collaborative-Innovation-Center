@@ -14,6 +14,9 @@ public class DyrchxResponse {
     @ApiModelProperty(value = "专利数")
     private String zls;
 
+    @ApiModelProperty(value = "状态")
+    private String zt;
+
     @ApiModelProperty(value = "学术职称")
     private String xszc;
 
@@ -35,7 +38,22 @@ public class DyrchxResponse {
     @ApiModelProperty(value = "核心技术")
     private String hxjs;
 
+    @ApiModelProperty(value = "毕业院校")
+    private String byyx;
+
+    @ApiModelProperty(value = "工作单位")
+    private String gzdw;
+
+    @ApiModelProperty(value = "工作职级")
+    private String gzzc;
+
     @ApiModelProperty(value = "匹配企业")
     private List<QyListHxResponse> qy;
+
+    @ApiModelProperty(value = "匹配科创平台")
+    private List<KcptResponse> kcpt;
+
+    @ApiModelProperty(value = "匹配产业园区")
+    private List<CyyqResponse> yq;
 
 }
