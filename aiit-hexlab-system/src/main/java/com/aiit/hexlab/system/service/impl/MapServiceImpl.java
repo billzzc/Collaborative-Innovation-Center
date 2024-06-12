@@ -542,6 +542,14 @@ public class MapServiceImpl implements IMapService {
     }
 
     @Override
+    public CydyrcfxResponse cydyrcfx(String type) {
+        CydyrcfxResponse response = new CydyrcfxResponse();
+        response.setNlfb(dyrcMapper.nlfb(type));
+        response.setRcjb(dyrcMapper.rcjb(type));
+        return response;
+    }
+
+    @Override
     public void location(String type) {
         if (type.equals("0")) {
             List<Cyyq> cyyqs = cyyqMapper.selectList(null);

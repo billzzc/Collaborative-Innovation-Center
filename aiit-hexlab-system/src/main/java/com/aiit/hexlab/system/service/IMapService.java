@@ -36,6 +36,8 @@ public interface IMapService {
 
     List<DyrclyResponse> dyrcly(String type);
 
+    CydyrcfxResponse cydyrcfx(String type);
+
     void location(String type);
 
 }

@@ -141,6 +141,14 @@ public class MapController {
         return AjaxNewResult.success(list);
     }
 
+    @ApiOperation(value = "产业盯引人才分析")
+    @GetMapping("cydyrcfx")
+    @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
+    public AjaxNewResult<CydyrcfxResponse> cydyrcfx(@RequestParam("type") String type) {
+        CydyrcfxResponse response = mapService.cydyrcfx(type);
+        return AjaxNewResult.success(response);
+    }
+
     @ApiOperation(value = "更新经纬度")
     @GetMapping("location")
     public AjaxResult location(@RequestParam("type") String type) {
