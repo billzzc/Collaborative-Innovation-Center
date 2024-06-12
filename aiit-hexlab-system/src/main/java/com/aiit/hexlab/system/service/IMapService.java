@@ -8,7 +8,7 @@ public interface IMapService {
 
     List<PieResponse> cyqygl(String type);
 
-    CyhxjsResponse cyhxjs(String type, String name);
+    CyhxjsResponse cyhxjs(String type);
 
     CyqyResponse cyqy(String type);
 
@@ -31,6 +31,10 @@ public interface IMapService {
     CyyqhxResponse cyyqhx(Long id);
 
     KcpthxResponse kcpthx(Long id);
+
+    List<CydyrckResponse> cydyrck(String type);
+
+    List<DyrclyResponse> dyrcly(String type);
 
     void location(String type);
 

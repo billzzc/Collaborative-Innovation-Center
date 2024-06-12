@@ -22,6 +22,7 @@ com\aiit\hexlab\system\domain\entity\SysConfig.class
 com\aiit\hexlab\system\domain\vo\response\MapResponse.class
 com\aiit\hexlab\system\mapper\SysNoticeMapper.class
 com\aiit\hexlab\system\domain\entity\SysCache.class
+com\aiit\hexlab\system\domain\vo\response\CydyrckResponse.class
 com\aiit\hexlab\system\mapper\SysLogininforMapper.class
 com\aiit\hexlab\system\domain\vo\response\PieResponse.class
 com\aiit\hexlab\system\mapper\SysMenuMapper.class
@@ -66,6 +67,7 @@ com\aiit\hexlab\system\domain\entity\SysUserOnline.class
 com\aiit\hexlab\system\mapper\QykMapper.class
 com\aiit\hexlab\system\service\impl\SysUserOnlineServiceImpl.class
 com\aiit\hexlab\system\mapper\CyjqcxptMapper.class
+com\aiit\hexlab\system\domain\vo\response\DyrclyResponse.class
 com\aiit\hexlab\system\service\impl\MapServiceImpl.class
 com\aiit\hexlab\system\domain\entity\Qyk.class
 com\aiit\hexlab\system\mapper\AfrckMapper.class

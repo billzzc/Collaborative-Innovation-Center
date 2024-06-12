@@ -22,4 +22,16 @@ public class CyxyrcResponse {
     @ApiModelProperty(value = "人才等级")
     private String rcdj;
 
+    @ApiModelProperty(value = "专业")
+    private String zy;
+
+    @ApiModelProperty(value = "工作单位")
+    private String gzdw;
+
+    @ApiModelProperty(value = "工作单位id")
+    private Long gzdwId;
+
+    @ApiModelProperty(value = "人才状态")
+    private String rczt;
+
 }

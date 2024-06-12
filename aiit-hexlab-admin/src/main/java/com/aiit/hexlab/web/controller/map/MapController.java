@@ -32,13 +32,9 @@ public class MapController {
 
     @ApiOperation(value = "产业核心技术")
     @GetMapping("cyhxjs")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query"),
-            @ApiImplicitParam(name = "name", value = "名称", required = false, dataType = "String", paramType = "query")
-    })
-    public AjaxNewResult<CyhxjsResponse> cyhxjs(@RequestParam("type") String type,
-                                                @RequestParam(value = "name", required = false) String name) {
-        return AjaxNewResult.success(mapService.cyhxjs(type, name));
+    @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
+    public AjaxNewResult<CyhxjsResponse> cyhxjs(@RequestParam("type") String type) {
+        return AjaxNewResult.success(mapService.cyhxjs(type));
     }
 
     @ApiOperation(value = "产业企业")
@@ -127,6 +123,22 @@ public class MapController {
     public AjaxNewResult<KcpthxResponse> kcpthx(@RequestParam("id") Long id) {
         KcpthxResponse response = mapService.kcpthx(id);
         return AjaxNewResult.success(response);
+    }
+
+    @ApiOperation(value ="产业盯引人才库")
+    @GetMapping("cydyrck")
+    @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
+    public AjaxNewResult<List<CydyrckResponse>> cydyrck(@RequestParam("type") String type) {
+        List<CydyrckResponse> list = mapService.cydyrck(type);
+        return AjaxNewResult.success(list);
+    }
+
+    @ApiOperation(value ="盯引人才来源")
+    @GetMapping("dyrcly")
+    @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
+    public AjaxNewResult<List<DyrclyResponse>> dyrcly(@RequestParam("type") String type) {
+        List<DyrclyResponse> list = mapService.dyrcly(type);
+        return AjaxNewResult.success(list);
     }
 
     @ApiOperation(value = "更新经纬度")

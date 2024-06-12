@@ -8,8 +8,8 @@ import java.util.List;
 @Data
 public class CyhxjsResponse {
 
-    @ApiModelProperty(name = "上面一排")
-    private List<String> title;
+    @ApiModelProperty(name = "上面几排")
+    private List<List<String>> title;
 
     @ApiModelProperty(name = "关键词")
     private List<PieResponse> gjc;
