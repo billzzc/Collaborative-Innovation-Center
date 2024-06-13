@@ -61,7 +61,7 @@ public class MapServiceImpl implements IMapService {
         return result;
     }
     @Override
-    public CyhxjsResponse cyhxjs(String type) {
+    public CyhxjsResponse cyhxjs(String type, String name) {
         CyhxjsResponse response = new CyhxjsResponse();
         LambdaQueryWrapperX<Qyk> wrapper = new LambdaQueryWrapperX<>();
         if (type.equals("智能物联")) {
@@ -86,7 +86,7 @@ public class MapServiceImpl implements IMapService {
                                             .distinct()
                                             .collect(Collectors.toList());
                 single.addAll(xfsdList);
-                title.add(single.size() > 3 ? single.subList(0, 3) : single);
+                title.add(single.size() > 4 ? single.subList(0, 4) : single);
             }
             response.setTitle(title);
             Map<String, IntSummaryStatistics> collect = qyks.stream()
@@ -121,7 +121,7 @@ public class MapServiceImpl implements IMapService {
                                             .distinct()
                                             .collect(Collectors.toList());
                 single.addAll(zdfxList);
-                title.add(single.size() > 3 ? single.subList(0, 3) : single);
+                title.add(single.size() > 4 ? single.subList(0, 4) : single);
             }
             response.setTitle(title);
             Map<String, IntSummaryStatistics> collect = qyks.stream()
@@ -529,7 +529,7 @@ public class MapServiceImpl implements IMapService {
                                     .collect(Collectors.toList());
         if (dyrcs.size() > 0) {
             List<CydyrckResponse> cydyrckResponses = collect.stream()
-                                                          .map(e -> new CydyrckResponse(e.getXmpy(), e.getYjly(), e.getXszc(), e.getXzdgj(), e.getPpqy(), qykMap.get(e.getPpqy()), e.getYjzt()))
+                                                          .map(e -> new CydyrckResponse(e.getId(), e.getXmpy(), e.getYjly(), e.getXszc(), e.getXzdgj(), e.getPpqy(), qykMap.get(e.getPpqy()), e.getYjzt()))
                                                           .collect(Collectors.toList());
             return cydyrckResponses;
         }

@@ -32,9 +32,12 @@ public class MapController {
 
     @ApiOperation(value = "产业核心技术")
     @GetMapping("cyhxjs")
-    @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query")
-    public AjaxNewResult<CyhxjsResponse> cyhxjs(@RequestParam("type") String type) {
-        return AjaxNewResult.success(mapService.cyhxjs(type));
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "name", value = "名称", required = false, dataType = "String", paramType = "query")
+    })
+    public AjaxNewResult<CyhxjsResponse> cyhxjs(@RequestParam("type") String type, @RequestParam(value = "name", required = false) String name) {
+        return AjaxNewResult.success(mapService.cyhxjs(type, name));
     }
 
     @ApiOperation(value = "产业企业")

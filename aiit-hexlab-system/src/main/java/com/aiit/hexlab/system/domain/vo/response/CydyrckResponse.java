@@ -8,6 +8,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class CydyrckResponse {
 
+    @ApiModelProperty(value = "盯引人才id")
+    private Long id;
+
     @ApiModelProperty(value = "姓名拼音")
     private String xmpy;
 

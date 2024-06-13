@@ -8,7 +8,7 @@ public interface IMapService {
 
     List<PieResponse> cyqygl(String type);
 
-    CyhxjsResponse cyhxjs(String type);
+    CyhxjsResponse cyhxjs(String type, String name);
 
     CyqyResponse cyqy(String type);
 
