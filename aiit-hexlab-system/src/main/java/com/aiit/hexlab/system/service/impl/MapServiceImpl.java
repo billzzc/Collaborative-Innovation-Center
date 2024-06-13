@@ -89,6 +89,10 @@ public class MapServiceImpl implements IMapService {
                 title.add(single.size() > 4 ? single.subList(0, 4) : single);
             }
             response.setTitle(title);
+            if (StringUtils.isNotEmpty(name)) {
+                wrapper.eq(Qyk::getZdfx, name).or(w -> w.eq(Qyk::getXfsd, name));
+                qyks = qykMapper.selectList(wrapper);
+            }
             Map<String, IntSummaryStatistics> collect = qyks.stream()
                                                             .flatMap(qyk -> Arrays.stream(qyk.getHxjs()
                                                                                              .split("、")))
@@ -124,6 +128,10 @@ public class MapServiceImpl implements IMapService {
                 title.add(single.size() > 4 ? single.subList(0, 4) : single);
             }
             response.setTitle(title);
+            if (StringUtils.isNotEmpty(name)) {
+                wrapper.eq(Qyk::getCyfx, name).or(e->e.eq(Qyk::getZdfx, name));
+                qyks = qykMapper.selectList(wrapper);
+            }
             Map<String, IntSummaryStatistics> collect = qyks.stream()
                                                             .flatMap(qyk -> Arrays.stream(qyk.getHxjs()
                                                                                              .split("、")))
