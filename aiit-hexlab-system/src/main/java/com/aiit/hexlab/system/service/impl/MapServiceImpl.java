@@ -131,6 +131,10 @@ public class MapServiceImpl implements IMapService {
             }
             response.setTitle(title.size() > 3 ? title.subList(0, 3) : title);
             // 将qyks中hxjs字段按照顿号隔开拼成一个数组
+            wrapper.clear();
+            wrapper.eq(Qyk::getCyly, type)
+                   .and(q -> q.eq(Qyk::getXfsd, name).or().eq(Qyk::getCyfx, name).or().eq(Qyk::getZdfx, name));
+            qyks = qykMapper.selectList(wrapper);
             Map<String, IntSummaryStatistics> collect = qyks.stream()
                                                             .flatMap(qyk -> Arrays.stream(qyk.getHxjs()
                                                                                              .split("、")))
