@@ -129,7 +129,8 @@ public class MapServiceImpl implements IMapService {
                             .distinct()
                             .collect(Collectors.toList());
             }
-            response.setTitle(title.size() > 3 ? title.subList(0, 3) : title);
+//            response.setTitle(title.size() > 3 ? title.subList(0, 3) : title);
+            response.setTitle(title);
             // 将qyks中hxjs字段按照顿号隔开拼成一个数组
             wrapper.clear();
             wrapper.eq(Qyk::getCyly, type)
@@ -419,6 +420,7 @@ public class MapServiceImpl implements IMapService {
         response.setZdfx(qyk.getZdfx());
         response.setXfsd(qyk.getXfsd());
         response.setZjtx(qyk.getZjtx());
+        response.setJyfw(qyk.getJyfw());
         // 根据公司名去afrck中搜索人才
         List<Afrck> afrcks = afrckMapper.selectList(new LambdaQueryWrapper<Afrck>().eq(Afrck::getGzdw, qyk.getQymc()));
         if (afrcks.size() > 0) {

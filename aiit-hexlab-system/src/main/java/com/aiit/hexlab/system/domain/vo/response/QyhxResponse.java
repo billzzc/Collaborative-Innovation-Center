@@ -33,6 +33,9 @@ public class QyhxResponse {
     @ApiModelProperty(value = "专精特新")
     private String zjtx;
 
+    @ApiModelProperty(value = "经营范围")
+    private String jyfw;
+
     @ApiModelProperty(value = "企业重点人才")
     private List<RcListHxResponse> qyzdrc;
 
