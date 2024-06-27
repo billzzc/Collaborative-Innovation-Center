@@ -68,7 +68,7 @@ public class MapServiceImpl implements IMapService {
                                     .collect(Collectors.toList());
 
         for (String s : cyfxList) {
-            Integer i = qykMapper.selectCount(new LambdaQueryWrapper<Qyk>().like(Qyk::getCyfx, s));
+            Integer i = qykMapper.selectCount(new LambdaQueryWrapper<Qyk>().eq(Qyk::getCyly, type).like(Qyk::getCyfx, s));
             result.add(new PieResponse(s, i));
         }
 
