@@ -72,4 +72,9 @@ public class Qyk {
      * 专精特新
      */
     private String zjtx;
+
+    /**
+     * 经营范围
+     */
+    private String jyfw;
 }
