@@ -14,8 +14,8 @@ public class QyResponse {
     @ApiModelProperty(value = "企业")
     private String qy;
 
-    @ApiModelProperty(value = "重点方向")
-    private String zdfx;
+    @ApiModelProperty(value = "产业方向")
+    private String cyfx;
 
     @ApiModelProperty(value = "主营产品")
     private String zycp;

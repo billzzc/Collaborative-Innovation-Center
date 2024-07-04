@@ -195,12 +195,12 @@ public class MapServiceImpl implements IMapService {
                                    .collect(Collectors.toList());
 
             List<QyResponse> qyList = step2.stream()
-                                           .map(e -> new QyResponse(e.getId(), e.getQymc(), e.getZdfx(), e.getZycp()))
+                                           .map(e -> new QyResponse(e.getId(), e.getQymc(), e.getCyfx(), e.getZycp()))
                                            .collect(Collectors.toList());
             cyqyResponse.setQy(qyList);
         } else {
             List<QyResponse> qyList = qyks.stream()
-                                          .map(e -> new QyResponse(e.getId(), e.getQymc(), e.getZdfx(), e.getZycp()))
+                                          .map(e -> new QyResponse(e.getId(), e.getQymc(), e.getCyfx(), e.getZycp()))
                                           .collect(Collectors.toList());
             cyqyResponse.setQy(qyList);
         }
