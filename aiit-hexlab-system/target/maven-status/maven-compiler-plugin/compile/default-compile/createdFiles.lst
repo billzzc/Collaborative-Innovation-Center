@@ -15,6 +15,7 @@ com\aiit\hexlab\system\mapper\CyyqMapper.class
 com\aiit\hexlab\system\domain\vo\response\CyyqhxResponse.class
 com\aiit\hexlab\system\service\ISysUserService.class
 com\aiit\hexlab\system\domain\vo\response\CyyqResponse.class
+com\aiit\hexlab\system\domain\entity\XtcxdpAfrck.class
 com\aiit\hexlab\system\service\IMapService.class
 com\aiit\hexlab\system\mapper\SysDictTypeMapper.class
 com\aiit\hexlab\system\domain\entity\Rck.class
@@ -29,6 +30,7 @@ com\aiit\hexlab\system\mapper\SysMenuMapper.class
 com\aiit\hexlab\system\service\impl\SysConfigServiceImpl.class
 com\aiit\hexlab\system\mapper\SysRoleDeptMapper.class
 com\aiit\hexlab\system\service\ISysUserOnlineService.class
+com\aiit\hexlab\system\mapper\XtcxdpAfrckMapper.class
 com\aiit\hexlab\system\domain\entity\Xgjqgw.class
 com\aiit\hexlab\system\mapper\SysRoleMenuMapper.class
 com\aiit\hexlab\system\mapper\SysRoleMapper.class
@@ -68,6 +70,7 @@ com\aiit\hexlab\system\mapper\QykMapper.class
 com\aiit\hexlab\system\service\impl\SysUserOnlineServiceImpl.class
 com\aiit\hexlab\system\mapper\CyjqcxptMapper.class
 com\aiit\hexlab\system\domain\vo\response\DyrclyResponse.class
+com\aiit\hexlab\system\service\impl\XtcxServiceImpl.class
 com\aiit\hexlab\system\service\impl\MapServiceImpl.class
 com\aiit\hexlab\system\domain\entity\Qyk.class
 com\aiit\hexlab\system\mapper\AfrckMapper.class
@@ -90,3 +93,4 @@ com\aiit\hexlab\system\domain\vo\response\CyxyrcResponse.class
 com\aiit\hexlab\system\service\impl\SysNoticeServiceImpl.class
 com\aiit\hexlab\system\service\ISysDictDataService.class
 com\aiit\hexlab\system\LocationUtils.class
+com\aiit\hexlab\system\service\IXtcxService.class
