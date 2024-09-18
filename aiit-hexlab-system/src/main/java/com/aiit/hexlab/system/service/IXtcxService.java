@@ -2,38 +2,26 @@ package com.aiit.hexlab.system.service;
 
 import com.aiit.hexlab.system.domain.vo.response.PieResponse;
 import com.aiit.hexlab.system.domain.vo.response.RcfbResponse;
+import com.aiit.hexlab.system.domain.vo.response.xtcxdp.*;
 
 import java.util.List;
 
 public interface IXtcxService {
 
-    /**
-     * 产业人才入库趋势
-     * @return
-     */
-    List<RcfbResponse> cyrcrkqs();
+    GcspystResponse gcspyst();
 
-    /**
-     * 人才行业分布
-     * @return
-     */
-    List<PieResponse> rchyfb();
+    DkrcpyResponse dkrcpy();
 
-    /**
-     * 近3年企业服务态势2022-2024
-     * @return
-     */
-    List<PieResponse> fwts();
+    GxgcsResponse gxgcs();
 
-    /**
-     * 需求分析
-     * @return
-     */
-    List<PieResponse> xqfx();
+    GcshxjsResponse gcshxjs();
 
-    /**
-     * 创新成果分析
-     * @return
-     */
-    List<PieResponse> cxcgfx();
+    IndexResponse index();
+
+    GcsfwfnResponse gcsfwfn();
+
+    KccgResponse kccg();
+
+    CxfhResponse cxfh();
+
 }

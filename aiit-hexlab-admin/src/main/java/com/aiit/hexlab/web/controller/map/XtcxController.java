@@ -1,6 +1,7 @@
 package com.aiit.hexlab.web.controller.map;
 
 import com.aiit.hexlab.common.core.domain.AjaxNewResult;
+import com.aiit.hexlab.system.domain.vo.response.xtcxdp.*;
 import com.aiit.hexlab.system.service.IXtcxService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,34 +17,52 @@ public class XtcxController {
     @Resource
     private IXtcxService xtcxService;
 
-    @ApiOperation(value = "产业人才入库趋势")
-    @GetMapping("cyrcrkqs")
-    public AjaxNewResult cyrcrkqs() {
-        return AjaxNewResult.success(xtcxService.cyrcrkqs());
+    @ApiOperation(value = "工程师培育生态")
+    @GetMapping("gcspyst")
+    public AjaxNewResult<GcspystResponse> gcspyst() {
+        return AjaxNewResult.success(xtcxService.gcspyst());
     }
 
-    @ApiOperation(value = "人才行业分布")
-    @GetMapping("rchyfb")
-    public AjaxNewResult rchyfb() {
-        return AjaxNewResult.success(xtcxService.rchyfb());
+    @ApiOperation(value = "多跨人才培养")
+    @GetMapping("dkrcpy")
+    public AjaxNewResult<DkrcpyResponse> dkrcpy() {
+        return AjaxNewResult.success(xtcxService.dkrcpy());
     }
 
-    @ApiOperation(value = "近3年企业服务态势")
-    @GetMapping("fwts")
-    public AjaxNewResult fwts() {
-        return AjaxNewResult.success(xtcxService.fwts());
+    @ApiOperation(value = "共享工程师")
+    @GetMapping("gxgcs")
+    public AjaxNewResult<GxgcsResponse> gxgcs() {
+        return AjaxNewResult.success(xtcxService.gxgcs());
     }
 
-    @ApiOperation(value = "需求分析")
-    @GetMapping("xqfx")
-    public AjaxNewResult xqfx() {
-        return AjaxNewResult.success(xtcxService.xqfx());
+    @ApiOperation(value = "工程师核心技术")
+    @GetMapping("gcshxjs")
+    public AjaxNewResult<GcshxjsResponse> gcshxjs() {
+        return AjaxNewResult.success(xtcxService.gcshxjs());
     }
 
-    @ApiOperation(value = "创新成果分析")
-    @GetMapping("cxcgfx")
-    public AjaxNewResult cxcgfx() {
-        return AjaxNewResult.success(xtcxService.cxcgfx());
+    @ApiOperation(value = "首页")
+    @GetMapping("index")
+    public AjaxNewResult<IndexResponse> index() {
+        return AjaxNewResult.success(xtcxService.index());
+    }
+
+    @ApiOperation(value = "工程师服务赋能")
+    @GetMapping("gcsfwfn")
+    public AjaxNewResult<GcsfwfnResponse> gcsfwfn() {
+        return AjaxNewResult.success(xtcxService.gcsfwfn());
+    }
+
+    @ApiOperation(value = "科创成果")
+    @GetMapping("kccg")
+    public AjaxNewResult<KccgResponse> kccg() {
+        return AjaxNewResult.success(xtcxService.kccg());
+    }
+
+    @ApiOperation(value = "创新孵化")
+    @GetMapping("cxfh")
+    public AjaxNewResult<CxfhResponse> cxfh() {
+        return AjaxNewResult.success(xtcxService.cxfh());
     }
 
 }

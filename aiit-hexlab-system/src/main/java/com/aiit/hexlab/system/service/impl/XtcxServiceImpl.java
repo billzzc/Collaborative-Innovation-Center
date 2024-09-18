@@ -1,9 +1,10 @@
 package com.aiit.hexlab.system.service.impl;
 
-import com.aiit.hexlab.system.domain.entity.XtcxdpAfrck;
+import com.aiit.hexlab.system.domain.entity.*;
 import com.aiit.hexlab.system.domain.vo.response.PieResponse;
 import com.aiit.hexlab.system.domain.vo.response.RcfbResponse;
-import com.aiit.hexlab.system.mapper.XtcxdpAfrckMapper;
+import com.aiit.hexlab.system.domain.vo.response.xtcxdp.*;
+import com.aiit.hexlab.system.mapper.*;
 import com.aiit.hexlab.system.service.IXtcxService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.stereotype.Service;
@@ -16,85 +17,157 @@ import java.util.List;
 public class XtcxServiceImpl implements IXtcxService {
 
     @Resource
-    private XtcxdpAfrckMapper xtcxdpAfrckMapper;
+    private LhsysMapper lhsysMapper;
+
+    @Resource
+    private GxgcsMapper gxgcsMapper;
+
+    @Resource
+    private HxjscyMapper hxjscyMapper;
+
+    @Resource
+    private CxcgfxMapper cxcgfxMapper;
+
+    @Resource
+    private XmMapper xmMapper;
 
     @Override
-    public List<RcfbResponse> cyrcrkqs() {
-        return xtcxdpAfrckMapper.selectCyrcrkqs();
+    public GcspystResponse gcspyst() {
+        GcspystResponse response = new GcspystResponse();
+        List<String> name = new ArrayList<>();
+        name.add("北大信研院");
+        name.add("浙大科创中心");
+        name.add("浙大计创院");
+        name.add("湘湖实验室");
+        name.add("西电杭研所");
+        name.add("湘湖高等研究院");
+        name.add("巴顿研究院");
+        response.setName(name);
+        response.setYjyly(171);
+        response.setDjzj(336);
+        return response;
     }
 
     @Override
-    public List<PieResponse> rchyfb() {
-        List<PieResponse> result = new ArrayList<>();
-        Integer smjk = xtcxdpAfrckMapper.selectCount(new LambdaQueryWrapper<XtcxdpAfrck>().eq(XtcxdpAfrck::getSmjk, "1"));
-        Integer znwl = xtcxdpAfrckMapper.selectCount(new LambdaQueryWrapper<XtcxdpAfrck>().eq(XtcxdpAfrck::getZnwl, "1"));
-        Integer znqc = xtcxdpAfrckMapper.selectCount(new LambdaQueryWrapper<XtcxdpAfrck>().eq(XtcxdpAfrck::getZnqc, "1"));
-        Integer xwxcl = xtcxdpAfrckMapper.selectCount(new LambdaQueryWrapper<XtcxdpAfrck>().eq(XtcxdpAfrck::getXwxcl, "1"));
-        Integer gdzb = xtcxdpAfrckMapper.selectCount(new LambdaQueryWrapper<XtcxdpAfrck>().eq(XtcxdpAfrck::getGdzb, "1"));
-        Integer qt = xtcxdpAfrckMapper.selectCount(new LambdaQueryWrapper<XtcxdpAfrck>().ne(XtcxdpAfrck::getSmjk, "1")
-                .ne(XtcxdpAfrck::getZnwl, "1").ne(XtcxdpAfrck::getZnqc, "1").ne(XtcxdpAfrck::getXwxcl, "1").ne(XtcxdpAfrck::getGdzb, "1"));
-        Integer amount = smjk + znwl + znqc + xwxcl + gdzb + qt;
-
-        PieResponse a = new PieResponse("生命健康", smjk, smjk / (double) amount);
-        PieResponse b = new PieResponse("智能物联", znwl, znwl / (double) amount);
-        PieResponse c = new PieResponse("智能汽车", znqc, znqc / (double) amount);
-        PieResponse d = new PieResponse("纤维新材料", xwxcl, xwxcl / (double) amount);
-        PieResponse e = new PieResponse("高端装备", gdzb, gdzb / (double) amount);
-        PieResponse f = new PieResponse("其他", qt, qt / (double) amount);
-        result.add(a);
-        result.add(b);
-        result.add(c);
-        result.add(d);
-        result.add(e);
-        result.add(f);
-        return result;
+    public DkrcpyResponse dkrcpy() {
+        DkrcpyResponse response = new DkrcpyResponse();
+        response.setCyxrc(100);
+        response.setZzjspx(22300);
+        response.setDkgcs(1500);
+        List<LhsysResponse> lhsysResponses = new ArrayList<>();
+        List<Lhsys> lhsys = lhsysMapper.selectList(null);
+        for (Lhsys lhsy : lhsys) {
+            LhsysResponse lhsysResponse = new LhsysResponse();
+            lhsysResponse.setId(lhsy.getId());
+            lhsysResponse.setLhsysmc(lhsy.getLhsysmc());
+            lhsysResponse.setHzqy(lhsy.getHzqy());
+            lhsysResponse.setYtjg(lhsy.getYtjg());
+            lhsysResponses.add(lhsysResponse);
+        }
+        response.setLhsys(lhsysResponses);
+        return response;
     }
 
     @Override
-    public List<PieResponse> fwts() {
-        List<PieResponse> result = new ArrayList<>();
-        PieResponse a = new PieResponse("2022 H1", 499);
-        PieResponse b = new PieResponse("2022 H2", 525);
-        PieResponse c = new PieResponse("2023 H1", 575);
-        PieResponse d = new PieResponse("2023 H2", 624);
-        PieResponse e = new PieResponse("2024 H1", 633);
-        result.add(a);
-        result.add(b);
-        result.add(c);
-        result.add(d);
-        result.add(e);
-        return result;
+    public GxgcsResponse gxgcs() {
+        GxgcsResponse response = new GxgcsResponse();
+        response.setZjgcs(1668);
+        response.setGjgcs(1198);
+        response.setZygcs(10);
+        response.setQjgcs(20);
+        response.setZkgcs(gxgcsMapper.selectCount(null));
+        response.setPieResponses(gxgcsMapper.gxgcs());
+        return response;
     }
 
     @Override
-    public List<PieResponse> xqfx() {
-        List<PieResponse> result = new ArrayList<>();
+    public GcshxjsResponse gcshxjs() {
+        GcshxjsResponse response = new GcshxjsResponse();
+        List<GcsResponse> gcsResponses = new ArrayList<>();
+        List<Gxgcs> gxgcs = gxgcsMapper.selectList(null);
+        for (Gxgcs gxgcs1 : gxgcs) {
+            GcsResponse gcsResponse = new GcsResponse();
+            gcsResponse.setId(gxgcs1.getId());
+            gcsResponse.setName(gxgcs1.getXm());
+            gcsResponse.setRcjb(gxgcs1.getRcrdjb());
+            gcsResponse.setXw(gxgcs1.getXw());
+            gcsResponse.setZc(gxgcs1.getZc());
+            gcsResponses.add(gcsResponse);
+        }
+        response.setGcs(gcsResponses);
+        List<Hxjscy> hxjscyList = hxjscyMapper.selectList(null);
+        List<PieResponse> cy = new ArrayList<>();
+        for (Hxjscy hxjscy : hxjscyList) {
+            PieResponse pieResponse = new PieResponse();
+            pieResponse.setName(hxjscy.getName());
+            pieResponse.setValue(hxjscy.getCount());
+            cy.add(pieResponse);
+        }
+        response.setCy(cy);
+        return response;
+    }
+
+    @Override
+    public IndexResponse index() {
+        IndexResponse response = new IndexResponse();
+        response.setZjhjjjjxy(96734.427);
+        response.setFwqy(2856);
+        response.setLhsys(76);
+        response.setFwljcs(6000);
+        response.setFhqy(200);
+        return response;
+    }
+
+    @Override
+    public GcsfwfnResponse gcsfwfn() {
+        GcsfwfnResponse response = new GcsfwfnResponse();
+        response.setJbgs(16);
+        response.setQyfwz(13);
+        response.setJjqygexnt(434);
+        response.setJjqyggongxnt(79);
+        List<PieResponse> pieResponses = new ArrayList<>();
         PieResponse a = new PieResponse("人才需求", 235, 0.22);
         PieResponse b = new PieResponse("数字化改造", 424, 0.39);
         PieResponse c = new PieResponse("设备更新", 43, 0.04);
         PieResponse d = new PieResponse("企业提质", 95, 0.09);
         PieResponse e = new PieResponse("产学研合作", 193, 0.18);
         PieResponse f = new PieResponse("其他", 85, 0.08);
-        result.add(a);
-        result.add(b);
-        result.add(c);
-        result.add(d);
-        result.add(e);
-        result.add(f);
-        return result;
+        pieResponses.add(a);
+        pieResponses.add(b);
+        pieResponses.add(c);
+        pieResponses.add(d);
+        pieResponses.add(e);
+        pieResponses.add(f);
+        response.setPieResponses(pieResponses);
+        return response;
     }
 
     @Override
-    public List<PieResponse> cxcgfx() {
-        List<PieResponse> result = new ArrayList<>();
-        PieResponse a = new PieResponse("发明专利", 945, 0.6769);
-        PieResponse b = new PieResponse("实用新型", 75, 0.05373);
-        PieResponse c = new PieResponse("授权发明", 364, 0.2607);
-        PieResponse d = new PieResponse("外观设计", 12, 0.0086);
-        result.add(a);
-        result.add(b);
-        result.add(c);
-        result.add(d);
-        return result;
+    public KccgResponse kccg() {
+        KccgResponse response = new KccgResponse();
+        response.setZlsq(1396);
+        response.setCgzyzh(97);
+        response.setPieResponses(cxcgfxMapper.cxcgfx());
+        return response;
+    }
+
+    @Override
+    public CxfhResponse cxfh() {
+        CxfhResponse response = new CxfhResponse();
+        response.setKyzdxm(42);
+        response.setGnyzxm(16);
+        response.setXm5213(88);
+        List<XmResponse> xmResponses = new ArrayList<>();
+        List<Xm> xms = xmMapper.selectList(null);
+        for (Xm xm : xms) {
+            XmResponse xmResponse = new XmResponse();
+            xmResponse.setId(xm.getId());
+            xmResponse.setXmmc(xm.getXmmc());
+            xmResponse.setXmdw(xm.getYtdw());
+            xmResponse.setXmlx(xm.getXmlx());
+            xmResponses.add(xmResponse);
+        }
+        response.setXmResponses(xmResponses);
+        return response;
     }
 }
