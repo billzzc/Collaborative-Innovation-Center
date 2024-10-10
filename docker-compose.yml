@@ -10,10 +10,10 @@ services:
     volumes:
       - ./logs:/logs
     networks:
-      - aiit-hexlab
+      - aiit-itesc
     environment:
       - TZ=Asia/Shanghai
 networks:
-  aiit-hexlab:
+  aiit-itesc:
     external: true
 
